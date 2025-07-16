@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Apps Scriptからの表データ読み込み</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Apps Scriptからの表データ</h1>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableHeadRow = document.querySelector('#dataTable thead tr');
+            const tableBody = document.querySelector('#dataTable tbody');
+
+            // ★★★ ここにデプロイしたGASのウェブアプリURLを貼り付けてください ★★★
+            const gasApiUrl = 'YOUR_GAS_WEB_APP_URL_HERE'; 
+
+            fetch(gasApiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json(); // JSONとしてパース
+                })
+                .then(data => {
+                    if (data.error) {
+                        console.error('GASエラー:', data.error);
+                        tableBody.innerHTML = `<tr><td colspan="100%">データの読み込みに失敗しました: ${data.error}</td></tr>`; // colspanを大きく設定
+                        return;
+                    }
+                    if (data.message) { // データがない場合のメッセージ
+                        tableBody.innerHTML = `<tr><td colspan="100%">${data.message}</td></tr>`;
+                        return;
+                    }
+
+                    if (data.length === 0) {
+                        tableBody.innerHTML = `<tr><td colspan="100%">スプレッドシートにデータが見つかりませんでした。</td></tr>`;
+                        return;
+                    }
+
+                    // ヘッダーを動的に生成
+                    const firstItem = data[0];
+                    for (const key in firstItem) {
+                        if (Object.hasOwnProperty.call(firstItem, key)) {
+                            const th = document.createElement('th');
+                            th.textContent = key;
+                            tableHeadRow.appendChild(th);
+                        }
+                    }
+
+                    // 取得したデータを元にテーブルの行を生成
+                    data.forEach(item => {
+                        const row = tableBody.insertRow();
+                        for (const key in item) {
+                            if (Object.hasOwnProperty.call(item, key)) {
+                                const cell = row.insertCell();
+                                cell.textContent = item[key];
+                            }
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('データの取得中にエラーが発生しました:', error);
+                    tableBody.innerHTML = `<tr><td colspan="100%">データの読み込みに失敗しました。ネットワークエラーかGASの設定を確認してください。</td></tr>`;
+                });
+        });
+    </script>
+</body>
+</html>
