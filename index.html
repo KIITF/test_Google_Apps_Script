@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>空木/utugi HP</title>
     <link rel="icon" href="resources/images/utugi_icon_favicon.png" type="image/png">
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <script src="[https://cdn.jsdelivr.net/npm/chart.js](https://cdn.jsdelivr.net/npm/chart.js)"></script>
-    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap)" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* 基本フォント設定とスムーズスクロール */
         body {
@@ -100,7 +100,7 @@
             transition: transform 0.2s ease-in-out;
             position: relative;
         }
-         .gallery-item a, .gallery-item img, .gallery-item video {
+        .gallery-item a, .gallery-item img, .gallery-item video {
             display: block;
             width: 100%;
             height: 100%;
@@ -111,7 +111,6 @@
         .gallery-item img, .gallery-item video {
             object-fit: cover;
         }
-
 
         /* Gallery Navigation Arrows Styling */
         .gallery-nav-arrows {
@@ -166,6 +165,10 @@
                 -webkit-text-stroke-width: 0.1px;
                 -webkit-text-stroke-color: black;
             }
+            .sm\:px-14 { /* Custom class for 3.5rem padding */
+                padding-left: 3.5rem;
+                padding-right: 3.5rem;
+            }
         }
         /* History list styling */
         .history-item {
@@ -185,13 +188,13 @@
             color: #6B7280;
             font-size: 0.875rem;
         }
-         .history-item .date, .history-item .type {
+        .history-item .date, .history-item .type {
             font-size: 0.875rem;
             color: #4B5563;
             white-space: nowrap;
         }
         .history-item > div {
-             margin-right: 1rem;
+            margin-right: 1rem;
         }
         .history-item > div:last-child {
             margin-right: 0;
@@ -269,7 +272,7 @@
         </nav>
         <div class="sm:hidden">
             <button id="hamburger-button" class="text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
@@ -294,17 +297,17 @@
                 <div class="flex flex-col items-center">
                     <img src="resources/images/utugi_icon.png" alt="空木/utugi アイコン"
                         class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-6 sm:mb-0 shadow-md"
-                        onerror="this.onerror=null;this.src='[https://placehold.co/160x160/E5E7EB/374151?text=Icon](https://placehold.co/160x160/E5E7EB/374151?text=Icon)';">
+                        onerror="this.onerror=null;this.src='https://placehold.co/160x160/E5E7EB/374151?text=Icon';">
                     <h1 class="text-4xl sm:text-5xl font-bold mb-2 mt-10">空木/utugi</h1>
                     <p class="text-xl text-emerald-300 font-semibold mb-4 mt-4">映像クリエーター</p>
                     <p class="text-gray-200 leading-relaxed max-w-xl mx-auto mb-6">
                         リリックモーション、3DCGを用いたMV制作が中心。
                     </p>
                     <div class="flex space-x-4">
-                        <a href="[https://x.com/utugi313](https://x.com/utugi313)" target="_blank" rel="noopener noreferrer" aria-label="X (旧Twitter)へのリンク" class="group">
+                        <a href="https://x.com/utugi313" target="_blank" rel="noopener noreferrer" aria-label="X (旧Twitter)へのリンク" class="group">
                             <img src="resources/images/X_icon.png" alt="X icon" class="w-10 h-5 object-contain transition-opacity duration-300 group-hover:opacity-70" onerror="this.style.display='none'">
                         </a>
-                        <a href="[https://www.youtube.com/@utugi2421](https://www.youtube.com/@utugi2421)" target="_blank" rel="noopener noreferrer" aria-label="YouTubeへのリンク" class="group">
+                        <a href="https://www.youtube.com/@utugi2421" target="_blank" rel="noopener noreferrer" aria-label="YouTubeへのリンク" class="group">
                             <img src="resources/images/youtube_icon.png" alt="YouTube icon" class="w-10 h-5 object-contain transition-opacity duration-300 group-hover:opacity-70" onerror="this.style.display='none'">
                         </a>
                     </div>
@@ -336,41 +339,67 @@
 
                     <div id="shape-content" class="tab-content active">
                         <h3 class="text-xl sm:text-2xl font-semibold mb-6 text-center text-gray-700">Shape Motion</h3>
-                        <!-- Responsive grid: 2 cols on small, 3 on sm, 4 on md, 5 on lg -->
-                        <div id="shape-grid-items-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
+                        <div id="shape-grid-items-container" class="grid grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
                         </div>
                     </div>
 
                     <div id="lyric-content" class="tab-content">
                         <h3 class="text-xl sm:text-2xl font-semibold mb-6 text-center text-gray-700">Lyric Motion</h3>
-                        <!-- Responsive grid: 2 cols on small, 3 on sm, 4 on md, 5 on lg -->
-                        <div id="lyric-grid-items-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
+                        <div class="grid grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+1" alt="リリックモーション 1の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+2" alt="リリックモーション 2の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+3" alt="リリックモーション 3の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+4" alt="リリックモーション 4の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+5" alt="リリックモーション 5の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+6" alt="リリックモーション 6の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+7" alt="リリックモーション 7の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+8" alt="リリックモーション 8の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+9" alt="リリックモーション 9の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+10" alt="リリックモーション 10の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+11" alt="リリックモーション 11の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+12" alt="リリックモーション 12の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+13" alt="リリックモーション 13の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+14" alt="リリックモーション 14の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=Lyric+15" alt="リリックモーション 15の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
                         </div>
                     </div>
 
                     <div id="3dcg-content" class="tab-content">
                         <h3 class="text-xl sm:text-2xl font-semibold mb-6 text-center text-gray-700">3DCG</h3>
-                        <!-- Responsive grid: 2 cols on small, 3 on sm, 4 on md, 5 on lg -->
-                        <div id="3dcg-grid-items-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
+                        <div class="grid grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+1" alt="3DCG 1の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+2" alt="3DCG 2の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+3" alt="3DCG 3の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+4" alt="3DCG 4の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+5" alt="3DCG 5の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+6" alt="3DCG 6の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+7" alt="3DCG 7の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+8" alt="3DCG 8の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+9" alt="3DCG 9の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+10" alt="3DCG 10の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+11" alt="3DCG 11の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+12" alt="3DCG 12の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+13" alt="3DCG 13の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+14" alt="3DCG 14の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+15" alt="3DCG 15の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
                         </div>
                     </div>
 
                     <div id="logo-content" class="tab-content">
                         <h3 class="text-xl sm:text-2xl font-semibold mb-6 text-center text-gray-700">Logo Designs</h3>
-                        <!-- Responsive grid: 2 cols on small, 3 on sm, 4 on md, 5 on lg -->
-                        <div id="logo-grid-items-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
+                        <div id="logo-grid-items-container" class="grid grid-cols-5 grid-rows-3 gap-2 sm:gap-7 mx-auto max-w-3xl aspect-[5/3]">
                         </div>
                     </div>
 
 
                     <div class="gallery-nav-arrows">
                         <button id="gallery-prev-button" class="gallery-arrow-button" aria-label="Previous Tab">
-                            <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                             </svg>
                         </button>
                         <button id="gallery-next-button" class="gallery-arrow-button" aria-label="Next Tab">
-                            <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                             </svg>
                         </button>
@@ -390,11 +419,6 @@
                     <span class="section-title-line mt-4 sm:mt-6"></span>
                 </div>
 
-                <!-- Data Loading Status Message -->
-                <div id="data-loading-status" class="text-center text-gray-600 mt-4 mb-8">
-                    データを読み込み中...
-                </div>
-
                 <div class="data-area-block max-w-3xl mx-auto">
                     <div class="relative h-72 sm:h-96">
                         <canvas id="requestRatioChart"></canvas>
@@ -410,7 +434,7 @@
                 <div class="data-area-block max-w-3xl mx-auto">
                     <h3 class="text-2xl font-semibold text-gray-700 mb-6 text-center">History</h3>
                     <div id="history-list-container" class="space-y-2">
-                        </div>
+                    </div>
                     <div class="text-center mt-6">
                         <button id="toggle-history-button" class="text-emerald-600 hover:text-emerald-700 font-medium">
                             もっと見る
@@ -455,9 +479,9 @@
                             <label for="cg-usage" class="block text-sm font-medium text-gray-700 mb-1">CGの使用度合い (CG Usage)</label>
                             <select name="cg-usage" id="cg-usage" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500" required>
                                 <option value="">選択してください</option>
-                                <option value="フル3D">フル3D (サビを含め曲全体で3DCGがメイン)</option>
-                                <option value="中程度">中程度</option>
-                                <option value="一部・無し">一部・無し</option>
+                                <option value="full-3d">フル3D (サビを含め曲全体で3DCGがメイン)</option>
+                                <option value="medium">中程度</option>
+                                <option value="partial-none">一部・無し</option>
                             </select>
                         </div>
                         <div class="mb-4">
@@ -487,10 +511,10 @@
 
     <footer class="bg-gray-900 text-gray-400 py-8 text-center">
         <div class="footer-sns-icons flex justify-center space-x-4 mb-4">
-            <a href="[https://x.com/utugi313](https://x.com/utugi313)" target="_blank" rel="noopener noreferrer" aria-label="X (旧Twitter)へのリンク">
+            <a href="https://x.com/utugi313" target="_blank" rel="noopener noreferrer" aria-label="X (旧Twitter)へのリンク">
                 <img src="resources/images/X_icon.png" alt="X icon" onerror="this.style.display='none'">
             </a>
-            <a href="[https://www.youtube.com/@utugi2421](https://www.youtube.com/@utugi2421)" target="_blank" rel="noopener noreferrer" aria-label="YouTubeへのリンク">
+            <a href="https://www.youtube.com/@utugi2421" target="_blank" rel="noopener noreferrer" aria-label="YouTubeへのリンク">
                 <img src="resources/images/youtube_icon.png" alt="YouTube icon" onerror="this.style.display='none'">
             </a>
         </div>
@@ -499,7 +523,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Hamburger Menu Toggle
+            // ハンバーガーメニューの切り替え
             const hamburgerButton = document.getElementById('hamburger-button');
             const mobileMenu = document.getElementById('mobile-menu-nav');
             const mobileMenuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
@@ -508,7 +532,7 @@
                 hamburgerButton.addEventListener('click', function() {
                     mobileMenu.classList.toggle('active');
                 });
-                // Close menu when a link is clicked
+                // リンクがクリックされたらメニューを閉じる
                 mobileMenuLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.remove('active');
@@ -516,49 +540,28 @@
                 });
             }
 
-            // --- Gallery Item Data ---
+            // --- ギャラリーアイテムデータ ---
             const logoDesignItemsData = [
-                { type: 'image', fileName: 'cappuccino.png', altText: 'カプチーノの画像', link: '[https://www.youtube.com/watch?v=4EI2920QK3c](https://www.youtube.com/watch?v=4EI2920QK3c)', cells: [1, 2], pathPrefix: 'resources/logo/' },
-                { type: 'image', fileName: 'c_plant_yuki.png', altText: '雪と植物の画像', link: '[https://www.youtube.com/watch?v=yLbaExt0H0A](https://www.youtube.com/watch?v=yLbaExt0H0A)', cells: [3, 8], pathPrefix: 'resources/logo/' },
-                { type: 'image', fileName: 'cappuccino.png', altText: 'カプチーノの画像', link: '[https://www.youtube.com/watch?v=4EI2920QK3c](https://www.youtube.com/watch?v=4EI2920QK3c)', cells: [4, 5], pathPrefix: 'resources/logo/' },
-                { type: 'image', fileName: 'EpisodeX_square.png', altText: 'EpisodeX 正方形の画像', link: '[https://youtube.com](https://youtube.com)', cells: [6, 7, 11, 12], pathPrefix: 'resources/logo/' },
-                { type: 'image', fileName: 'EpisodeX.png', altText: 'EpisodeXの画像', link: '[https://www.youtube.com/watch?v=Co5J7dwh1l0](https://www.youtube.com/watch?v=Co5J7dwh1l0)', cells: [9, 10], pathPrefix: 'resources/logo/' },
-                { type: 'image', fileName: 'EpisodeX.png', altText: 'EpisodeXの画像', link: '[https://www.youtube.com/watch?v=Co5J7dwh1l0](https://www.youtube.com/watch?v=Co5J7dwh1l0)', cells: [13, 14], pathPrefix: 'resources/logo/' },
-                { type: 'image', fileName: 'EpisodeX_square.png', altText: 'EpisodeX 正方形の画像', link: '[https://www.youtube.com/watch?v=Co5J7dwh1l0](https://www.youtube.com/watch?v=Co5J7dwh1l0)', cells: [15], pathPrefix: 'resources/logo/' }
+                { type: 'image', fileName: 'cappuccino.png', altText: 'カプチーノの画像', link: 'https://www.youtube.com/watch?v=4EI2920QK3c', cells: [1, 2], pathPrefix: 'resources/logo/' },
+                { type: 'image', fileName: 'c_plant_yuki.png', altText: '雪と植物の画像', link: 'https://www.youtube.com/watch?v=yLbaExt0H0A', cells: [3, 8], pathPrefix: 'resources/logo/' },
+                { type: 'image', fileName: 'cappuccino.png', altText: 'カプチーノの画像', link: 'https://www.youtube.com/watch?v=4EI2920QK3c', cells: [4, 5], pathPrefix: 'resources/logo/' },
+                { type: 'image', fileName: 'EpisodeX_square.png', altText: 'EpisodeX 正方形の画像', link: 'https://youtube.com', cells: [6, 7, 11, 12], pathPrefix: 'resources/logo/' },
+                { type: 'image', fileName: 'EpisodeX.png', altText: 'EpisodeXの画像', link: 'https://www.youtube.com/watch?v=Co5J7dwh1l0', cells: [9, 10], pathPrefix: 'resources/logo/' },
+                { type: 'image', fileName: 'EpisodeX.png', altText: 'EpisodeXの画像', link: 'https://www.youtube.com/watch?v=Co5J7dwh1l0', cells: [13, 14], pathPrefix: 'resources/logo/' },
+                { type: 'image', fileName: 'EpisodeX_square.png', altText: 'EpisodeX 正方形の画像', link: 'https://www.youtube.com/watch?v=Co5J7dwh1l0', cells: [15], pathPrefix: 'resources/logo/' }
             ];
 
             const shapeMotionItemsData = [
-                { type: 'video', fileName: 'ego_rock.mp4', altText: 'Ego Rock Video', link: '[https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-](https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-)', cells: [1, 6], pathPrefix: 'resources/shape_motion/' },
-                { type: 'video', fileName: 'kawaii.mp4', altText: 'Kawaii Video 1', link: '[https://x.com/utugi313/status/1862043754426949942/video/1](https://x.com/utugi313/status/1862043754426949942/video/1)', cells: [2, 3], pathPrefix: 'resources/shape_motion/' },
-                { type: 'video', fileName: 'kawaii.mp4', altText: 'Kawaii Video 2', link: '[https://x.com/utugi313/status/1862043754426949942/video/1](https://x.com/utugi313/status/1862043754426949942/video/1)', cells: [7, 8], pathPrefix: 'resources/shape_motion/' },
-                { type: 'video', fileName: 'ego_rock.mp4', altText: 'Ego Rock Video 2', link: '[https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-](https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-)', cells: [4, 5, 9, 10], pathPrefix: 'resources/shape_motion/' },
-                { type: 'video', fileName: 'pastel.mp4', altText: 'Pastel Video', link: '[https://www.nicovideo.jp/watch/sm44778773](https://www.nicovideo.jp/watch/sm44778773)', cells: [11, 12], pathPrefix: 'resources/shape_motion/' },
-                { type: 'video', fileName: 'kawaii.mp4', altText: 'Kawaii Video 3', link: '[https://x.com/utugi313/status/1862043754426949942/video/1](https://x.com/utugi313/status/1862043754426949942/video/1)', cells: [13], pathPrefix: 'resources/shape_motion/' },
-                { type: 'video', fileName: 'ego_rock.mp4', altText: 'Ego Rock Video 3', link: '[https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-](https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-)', cells: [14, 15], pathPrefix: 'resources/shape_motion/' }
+                { type: 'video', fileName: 'ego_rock.mp4', altText: 'Ego Rock Video', link: 'https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-', cells: [1, 6], pathPrefix: 'resources/shape_motion/' },
+                { type: 'video', fileName: 'kawaii.mp4', altText: 'Kawaii Video 1', link: 'https://x.com/utugi313/status/1862043754426949942/video/1', cells: [2, 3], pathPrefix: 'resources/shape_motion/' },
+                { type: 'video', fileName: 'kawaii.mp4', altText: 'Kawaii Video 2', link: 'https://x.com/utugi313/status/1862043754426949942/video/1', cells: [7, 8], pathPrefix: 'resources/shape_motion/' },
+                { type: 'video', fileName: 'ego_rock.mp4', altText: 'Ego Rock Video 2', link: 'https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-', cells: [4, 5, 9, 10], pathPrefix: 'resources/shape_motion/' },
+                { type: 'video', fileName: 'pastel.mp4', altText: 'Pastel Video', link: 'https://www.nicovideo.jp/watch/sm44778773', cells: [11, 12], pathPrefix: 'resources/shape_motion/' },
+                { type: 'video', fileName: 'kawaii.mp4', altText: 'Kawaii Video 3', link: 'https://x.com/utugi313/status/1862043754426949942/video/1', cells: [13], pathPrefix: 'resources/shape_motion/' },
+                { type: 'video', fileName: 'ego_rock.mp4', altText: 'Ego Rock Video 3', link: 'https://youtu.be/D4bpqkqgy8c?si=naohsVlg72uTI6l-', cells: [14, 15], pathPrefix: 'resources/shape_motion/' }
             ];
 
-            // Placeholder data for Lyric Motion (15 items)
-            const lyricMotionItemsData = Array.from({ length: 15 }, (_, i) => ({
-                type: 'image',
-                fileName: `lyric_placeholder_${i + 1}.png`,
-                altText: `リリックモーション ${i + 1}の画像`,
-                link: '[https://youtube.com](https://youtube.com)', // Placeholder link
-                cells: [i + 1], // Each item occupies one cell
-                pathPrefix: '[https://placehold.co/200x200/FFFFFF/1F2937?text=](https://placehold.co/200x200/FFFFFF/1F2937?text=)' // Using placehold.co directly for placeholders
-            }));
-
-            // Placeholder data for 3DCG (15 items)
-            const threeDCGItemsData = Array.from({ length: 15 }, (_, i) => ({
-                type: 'image',
-                fileName: `3DCG_placeholder_${i + 1}.png`,
-                altText: `3DCG ${i + 1}の画像`,
-                link: '[https://youtube.com](https://youtube.com)', // Placeholder link
-                cells: [i + 1], // Each item occupies one cell
-                pathPrefix: '[https://placehold.co/200x200/FFFFFF/1F2937?text=](https://placehold.co/200x200/FFFFFF/1F2937?text=)' // Using placehold.co directly for placeholders
-            }));
-
-
-            // --- Helper function to get grid cell classes ---
+            // --- グリッドセルクラスを取得するヘルパー関数 ---
             function getGridPositionClasses(cells) {
                 const numRows = 3;
                 const numCols = 5;
@@ -579,14 +582,13 @@
                 return `col-start-${minCol} col-span-${colSpan} row-start-${minRow} row-span-${rowSpan}`;
             }
 
-            // --- Generic function to create and append gallery items ---
+            // --- ギャラリーアイテムを作成して追加する汎用関数 ---
             function populateGallery(containerId, itemsData) {
                 const container = document.getElementById(containerId);
                 if (!container) {
-                    console.error(`Container with ID "${containerId}" not found.`);
                     return;
                 }
-                container.innerHTML = ''; // Clear existing content
+                container.innerHTML = '';
 
                 itemsData.forEach(itemData => {
                     const itemWrapper = document.createElement('div');
@@ -598,23 +600,16 @@
                     link.rel = 'noopener noreferrer';
 
                     let mediaElement;
-                    // If pathPrefix is a URL (like placehold.co), use it directly. Otherwise, construct path.
-                    const mediaPath = itemData.pathPrefix.startsWith('http') ?
-                                      `${itemData.pathPrefix}${encodeURIComponent(itemData.altText.replace(/\s/g, '+'))}` : // For placehold.co, encode text
-                                      `${itemData.pathPrefix}${itemData.fileName}`;
+                    const mediaPath = `${itemData.pathPrefix}${itemData.fileName}`;
 
                     if (itemData.type === 'image') {
                         mediaElement = document.createElement('img');
                         mediaElement.src = mediaPath;
                         mediaElement.alt = itemData.altText;
-                        // Fallback for local images if they don't load
-                        if (!itemData.pathPrefix.startsWith('http')) {
-                            mediaElement.onerror = function() {
-                                this.onerror = null;
-                                // Use placehold.co as a fallback if the local image is not found
-                                this.src = `https://placehold.co/${itemWrapper.offsetWidth || 200}x${itemWrapper.offsetHeight || 200}/E5E7EB/374151?text=${encodeURIComponent(itemData.altText)}`;
-                            };
-                        }
+                        mediaElement.onerror = function() {
+                            this.onerror = null;
+                            this.src = `https://placehold.co/${itemWrapper.offsetWidth || 200}x${itemWrapper.offsetHeight || 200}/FFFFFF/1F2937?text=${encodeURIComponent(itemData.fileName)}`;
+                        };
                     } else if (itemData.type === 'video') {
                         mediaElement = document.createElement('video');
                         mediaElement.src = mediaPath;
@@ -644,13 +639,10 @@
                 });
             }
 
-            // Populate all gallery sections
             populateGallery('logo-grid-items-container', logoDesignItemsData);
             populateGallery('shape-grid-items-container', shapeMotionItemsData);
-            populateGallery('lyric-grid-items-container', lyricMotionItemsData); // Added
-            populateGallery('3dcg-grid-items-container', threeDCGItemsData);    // Added
 
-
+            // ギャラリータブ切り替えロジック
             const tabButtonContainer = document.getElementById('gallery-tab-buttons-container');
             const tabButtons = tabButtonContainer ? Array.from(tabButtonContainer.querySelectorAll('.gallery-tab-button')) : [];
             const tabContents = document.querySelectorAll('.tab-content');
@@ -721,7 +713,7 @@
                 }
             }
 
-            // --- Data Section Charts ---
+            // --- データセクションのチャートと履歴 (CSVから動的に読み込む) ---
             const lightGreenThemeColors = [
                 'rgba(193, 217, 199, 0.8)',
                 'rgba(218, 232, 221, 0.8)',
@@ -751,10 +743,9 @@
                     tooltip: {
                         callbacks: {
                             label: function(context) {
-                                return '';
+                                return ''; // ツールチップのボディ部分を非表示にする
                             }
-                        },
-                        displayColors: false
+                        }
                     }
                 },
                 animation: {
@@ -764,212 +755,69 @@
                 }
             };
 
+            const requestRatioChartConfig = {
+                type: 'pie',
+                data: {
+                    labels: ['オリジナル楽曲MV制作', '歌ってみたMV制作', 'ショートムービー制作', 'その他'],
+                    datasets: [{
+                        label: '依頼内容の割合',
+                        data: [], // CSVからロード後に設定
+                        backgroundColor: lightGreenThemeColors,
+                        borderColor: lightGreenThemeBorders,
+                        borderWidth: 1
+                    }]
+                },
+                options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { ...commonChartOptions.plugins.title, text: '依頼内容の割合' } } }
+            };
+
+            const cgUsageChartConfig = {
+                type: 'pie',
+                data: {
+                    labels: ['フル3D', '中程度', '一部・無し'],
+                    datasets: [{
+                        label: 'MVでの3DCG使用度合い',
+                        data: [], // CSVからロード後に設定
+                        backgroundColor: lightGreenThemeColors.slice(0,3),
+                        borderColor: lightGreenThemeBorders.slice(0,3),
+                        borderWidth: 1
+                    }]
+                },
+                options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { ...commonChartOptions.plugins.title, text: 'MVでの3DCG使用度合い' } } }
+            };
+
             let requestRatioChartInstance = null;
             let cgUsageChartInstance = null;
-
-            const chartObserverCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const canvasId = entry.target.id;
-                        if (canvasId === 'requestRatioChart' && !requestRatioChartInstance) {
-                            // Chart data will be set after fetching CSV
-                        } else if (canvasId === 'cgUsageChart' && !cgUsageChartInstance) {
-                            // Chart data will be set after fetching CSV
-                        }
-                        // Do not unobserve here, as data might not be ready yet.
-                        // Unobserve will happen after data is loaded and charts are rendered.
-                    }
-                });
-            };
-
-            const chartObserverOptions = {
-                root: null,
-                threshold: 0.8
-            };
-            const chartObserver = new IntersectionObserver(chartObserverCallback, chartObserverOptions);
-
-            const ctxRequestRatio = document.getElementById('requestRatioChart');
-            const ctxCgUsage = document.getElementById('cgUsageChart');
-
-            if (ctxRequestRatio) chartObserver.observe(ctxRequestRatio);
-            if (ctxCgUsage) chartObserver.observe(ctxCgUsage);
+            let allHistoryData = []; // CSVから読み込んだ全履歴データを格納する変数
+            let historyExpanded = false; // 履歴リストの表示状態
 
             const historyListContainer = document.getElementById('history-list-container');
             const toggleHistoryButton = document.getElementById('toggle-history-button');
-            const dataLoadingStatus = document.getElementById('data-loading-status');
             const itemsToShowInitially = 3;
-            let historyExpanded = false;
-            let fetchedHistoryData = []; // Store fetched data here
 
-            // Function to parse CSV text into an array of objects
-            function parseCSV(text) {
-                const lines = text.trim().split('\n');
-                if (lines.length === 0) {
-                    console.warn('CSVファイルが空です。');
-                    return [];
-                }
-
-                // ヘッダー行をパースし、最後の非空のヘッダーまでを有効なヘッダーとして認識する
-                let rawHeaders = lines[0].split(',').map(header => header.trim());
-                let effectiveHeaderCount = 0;
-                for (let i = rawHeaders.length - 1; i >= 0; i--) {
-                    if (rawHeaders[i] !== '') {
-                        effectiveHeaderCount = i + 1;
-                        break;
-                    }
-                }
-                const headers = rawHeaders.slice(0, effectiveHeaderCount);
-
-                if (headers.length === 0) {
-                    console.error('CSVファイルに有効なヘッダーが見つかりません。');
-                    return [];
-                }
-
-                const data = [];
-
-                for (let i = 1; i < lines.length; i++) {
-                    const values = lines[i].split(',').map(value => value.trim());
-                    const row = {};
-                    let isValidRow = true;
-
-                    // 有効なヘッダーの数までのみ値を処理する
-                    for (let j = 0; j < headers.length; j++) {
-                        if (j < values.length) {
-                            row[headers[j]] = values[j];
-                        } else {
-                            // 必要な列が不足している場合は、その行をスキップし警告を出す
-                            console.warn(`Malformed row skipped (行 ${i + 1}): "${lines[i]}" - ヘッダー "${headers[j]}" の値が不足しています。`);
-                            isValidRow = false;
-                            break;
-                        }
-                    }
-
-                    if (isValidRow) {
-                        data.push(row);
-                    }
-                }
-                return data;
-            }
-
-            // Function to fetch CSV data
-            async function fetchCsvData(url) {
-                try {
-                    dataLoadingStatus.textContent = 'データを読み込み中...';
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    const text = await response.text();
-                    const parsedData = parseCSV(text);
-                    dataLoadingStatus.textContent = ''; // Hide loading message on success
-                    return parsedData;
-                } catch (error) {
-                    console.error('Error fetching or parsing CSV:', error);
-                    dataLoadingStatus.textContent = 'データの読み込みに失敗しました。';
-                    return []; // Return empty array on error
-                }
-            }
-
-            // Function to render charts and history list
-            function renderDataSection(data) {
-                fetchedHistoryData = data.sort((a, b) => new Date(b.公開日) - new Date(a.公開日)); // '公開日' を使用
-
-                // Prepare data for Request Ratio Chart
-                const requestTypeCounts = {};
-                const requestLabels = ['オリジナル楽曲MV制作', '歌ってみたMV制作', 'ショートムービー制作', 'その他'];
-                requestLabels.forEach(label => requestTypeCounts[label] = 0); // Initialize counts
-
-                fetchedHistoryData.forEach(item => {
-                    if (requestTypeCounts.hasOwnProperty(item.依頼内容)) { // '依頼内容' を使用
-                        requestTypeCounts[item.依頼内容]++;
-                    } else {
-                        requestTypeCounts['その他']++; // Categorize unknown types as 'その他'
-                    }
-                });
-                const requestData = requestLabels.map(label => requestTypeCounts[label]);
-
-                // Update Request Ratio Chart
-                if (requestRatioChartInstance) {
-                    requestRatioChartInstance.destroy(); // Destroy existing instance
-                }
-                requestRatioChartInstance = new Chart(ctxRequestRatio, {
-                    type: 'pie',
-                    data: {
-                        labels: requestLabels,
-                        datasets: [{
-                            label: '依頼内容の割合',
-                            data: requestData,
-                            backgroundColor: lightGreenThemeColors,
-                            borderColor: lightGreenThemeBorders,
-                            borderWidth: 1
-                        }]
-                    },
-                    options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { ...commonChartOptions.plugins.title, text: '依頼内容の割合' } } }
-                });
-
-
-                // Prepare data for CG Usage Chart
-                const cgUsageCounts = {};
-                const cgUsageLabels = ['フル3D', '中程度', '一部・無し'];
-                cgUsageLabels.forEach(label => cgUsageCounts[label] = 0); // Initialize counts
-
-                fetchedHistoryData.forEach(item => {
-                    // item.CG使用度合い が空文字列の場合も '一部・無し' としてカウント
-                    const cgUsageValue = item.CG使用度合い || '一部・無し'; // 空文字列の場合は '一部・無し' を使用
-                    if (cgUsageCounts.hasOwnProperty(cgUsageValue)) {
-                        cgUsageCounts[cgUsageValue]++;
-                    } else {
-                        cgUsageCounts['一部・無し']++; // 予期しない値の場合も '一部・無し' に分類
-                    }
-                });
-                const cgUsageData = cgUsageLabels.map(label => cgUsageCounts[label]);
-
-                // Update CG Usage Chart
-                if (cgUsageChartInstance) {
-                    cgUsageChartInstance.destroy(); // Destroy existing instance
-                }
-                cgUsageChartInstance = new Chart(ctxCgUsage, {
-                    type: 'pie',
-                    data: {
-                        labels: cgUsageLabels,
-                        datasets: [{
-                            label: 'MVでの3DCG使用度合い',
-                            data: cgUsageData,
-                            backgroundColor: lightGreenThemeColors.slice(0,3),
-                            borderColor: lightGreenThemeBorders.slice(0,3),
-                            borderWidth: 1
-                        }]
-                    },
-                    options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { ...commonChartOptions.plugins.title, text: 'MVでの3DCG使用度合い' } } }
-                });
-
-                // Render history list
-                renderHistory();
-            }
-
+            // 履歴リストをレンダリングする関数
             function renderHistory() {
                 if (!historyListContainer) return;
                 historyListContainer.innerHTML = '';
-                const itemsToRender = historyExpanded ? fetchedHistoryData : fetchedHistoryData.slice(0, itemsToShowInitially);
+                const itemsToRender = historyExpanded ? allHistoryData : allHistoryData.slice(0, itemsToShowInitially);
 
                 itemsToRender.forEach(item => {
                     const itemDiv = document.createElement('div');
                     itemDiv.className = 'history-item';
                     itemDiv.innerHTML = `
                         <div class="flex-grow">
-                            <p class="title">${item.曲名等}</p> <!-- '曲名等' を使用 -->
-                            <p class="artist">${item.依頼主}</p> <!-- '依頼主' を使用 -->
+                            <p class="title">${item.title}</p>
+                            <p class="artist">${item.artist}</p>
                         </div>
                         <div class="text-right">
-                            <p class="date">${item.公開日}</p> <!-- '公開日' を使用 -->
-                            <p class="type">${item.依頼内容}</p> <!-- '依頼内容' を使用 -->
+                            <p class="date">${item.date}</p>
+                            <p class="type">${item.type}</p>
                         </div>
                     `;
                     historyListContainer.appendChild(itemDiv);
                 });
 
                 if (toggleHistoryButton) {
-                    if (fetchedHistoryData.length <= itemsToShowInitially) {
+                    if (allHistoryData.length <= itemsToShowInitially) {
                         toggleHistoryButton.style.display = 'none';
                     } else {
                         toggleHistoryButton.style.display = 'inline-block';
@@ -978,18 +826,142 @@
                 }
             }
 
+            // CSVデータをパースし、チャートと履歴リストを更新する関数
+            function parseCsvAndRenderCharts(csvText) {
+                const lines = csvText.trim().split('\n');
+                // ヘッダー行をスキップ
+                const dataRows = lines.slice(1);
+                const parsedData = [];
+
+                dataRows.forEach(line => {
+                    const values = line.split(',');
+                    // CSVの列数に合わせて調整 (依頼主, 曲名等, 公開日, 依頼内容, CG使用度合い(E), リンク, ..., CG使用度合い(K))
+                    if (values.length >= 10) { // 最低限必要な列があることを確認 (K列まで必要ならインデックス9まであるので10個の要素が必要)
+                        parsedData.push({
+                            client: values[0] ? values[0].trim() : '',
+                            title: values[1] ? values[1].trim() : '',
+                            releaseDate: values[2] ? values[2].trim() : '',
+                            requestContent: values[3] ? values[3].trim() : '',
+                            cgUsageCol4: values[4] ? values[4].trim() : '', // Column E (index 4)
+                            link: values[5] ? values[5].trim() : '',
+                            cgUsageCol9: values[9] ? values[9].trim() : '' // Column K (index 9)
+                        });
+                    }
+                });
+
+                // 依頼内容の集計
+                const requestCounts = {
+                    'オリジナル楽曲MV制作': 0,
+                    '歌ってみたMV制作': 0,
+                    'ショートムービー制作': 0,
+                    'その他': 0
+                };
+                // CG使用度合いの集計
+                const cgUsageCounts = {
+                    'フル3D': 0,
+                    '中程度': 0,
+                    '一部・無し': 0
+                };
+
+                parsedData.forEach(item => {
+                    // 依頼内容のカウント
+                    if (requestCounts.hasOwnProperty(item.requestContent)) {
+                        requestCounts[item.requestContent]++;
+                    } else {
+                        requestCounts['その他']++; // 定義されていない依頼内容は「その他」に分類
+                    }
+
+                    // CG使用度合いのカウント (Column Kを優先、なければColumn E)
+                    let finalCgUsage = item.cgUsageCol9 || item.cgUsageCol4;
+                    // 依頼内容が「CG制作」でCG使用度合いが空の場合、仮に「フル3D」とする
+                    if (item.requestContent === 'CG制作' && !finalCgUsage) {
+                        finalCgUsage = 'フル3D';
+                    }
+
+                    if (finalCgUsage === 'フル3D' || finalCgUsage === 'フルCG') { // 'フルCG'も'フル3D'として扱う
+                        cgUsageCounts['フル3D']++;
+                    } else if (finalCgUsage === '中程度') {
+                        cgUsageCounts['中程度']++;
+                    } else if (finalCgUsage === '一部・無し') {
+                        cgUsageCounts['一部・無し']++;
+                    }
+                });
+
+                // Chart.jsのデータを更新
+                requestRatioChartConfig.data.datasets[0].data = [
+                    requestCounts['オリジナル楽曲MV制作'],
+                    requestCounts['歌ってみたMV制作'],
+                    requestCounts['ショートムービー制作'],
+                    requestCounts['その他']
+                ];
+
+                cgUsageChartConfig.data.datasets[0].data = [
+                    cgUsageCounts['フル3D'],
+                    cgUsageCounts['中程度'],
+                    cgUsageCounts['一部・無し']
+                ];
+
+                // グラフを初期化または更新
+                if (requestRatioChartInstance) requestRatioChartInstance.destroy();
+                if (cgUsageChartInstance) cgUsageChartInstance.destroy();
+
+                const ctxRequestRatio = document.getElementById('requestRatioChart');
+                const ctxCgUsage = document.getElementById('cgUsageChart');
+
+                if (ctxRequestRatio) {
+                    requestRatioChartInstance = new Chart(ctxRequestRatio, requestRatioChartConfig);
+                } else {
+                    console.warn("requestRatioChart canvas element not found.");
+                }
+                if (ctxCgUsage) {
+                    cgUsageChartInstance = new Chart(ctxCgUsage, cgUsageChartConfig);
+                } else {
+                    console.warn("cgUsageChart canvas element not found.");
+                }
+
+                // 履歴リスト用のデータを準備してソート (新しい日付が先頭に来るように)
+                allHistoryData = parsedData.map(item => ({
+                    artist: item.client,
+                    title: item.title,
+                    date: item.releaseDate,
+                    type: item.requestContent
+                })).sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                renderHistory(); // 履歴リストをレンダリング
+            }
+
+            // CSVデータをロードする関数
+            async function loadCsvData() {
+                try {
+                    const response = await fetch('utugi_works.csv');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const csvText = await response.text();
+                    parseCsvAndRenderCharts(csvText);
+                } catch (error) {
+                    console.error('CSVデータの読み込みまたはパース中にエラーが発生しました:', error);
+                    // エラーメッセージをUIに表示
+                    const dataSection = document.getElementById('data');
+                    if (dataSection) {
+                        const errorMessage = document.createElement('p');
+                        errorMessage.className = 'text-center text-red-500 mt-4';
+                        errorMessage.textContent = 'データ表示に失敗しました。CSVファイルが正しく読み込まれているか確認してください。';
+                        dataSection.querySelector('.container').appendChild(errorMessage);
+                    }
+                }
+            }
+
+            // 履歴リストの表示切り替えボタンのイベントリスナー
             if (toggleHistoryButton) {
                 toggleHistoryButton.addEventListener('click', () => {
                     historyExpanded = !historyExpanded;
-                    renderHistory();
+                    renderHistory(); // 履歴リストを再レンダリング
                 });
             }
 
-            // Fetch data and render on load
-            fetchCsvData('utugi_works.csv').then(data => {
-                renderDataSection(data);
-            });
-
+            // ページロード時にCSVデータをロード
+            loadCsvData();
         });
     </script>
 
