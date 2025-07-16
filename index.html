@@ -380,8 +380,8 @@
                             <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+11" alt="3DCG 11の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
                             <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+12" alt="3DCG 12の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
                             <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+13" alt="3DCG 13の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
-                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+14" alt="3DCG 14の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
-                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+15" alt="3DCG 15の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+14" alt="リリックモーション 14の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
+                            <div class="gallery-item"><a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><img src="https://placehold.co/200x200/FFFFFF/1F2937?text=3DCG+15" alt="リリックモーション 15の画像" onerror="this.onerror=null;this.src='https://placehold.co/200x200/E5E7EB/374151?text=Error';"></a></div>
                         </div>
                     </div>
 
@@ -436,9 +436,10 @@
                     <div id="history-list-container" class="space-y-2">
                     </div>
                     <div class="text-center mt-6">
-                        <button id="toggle-history-button" class="text-emerald-600 hover:text-emerald-700 font-medium">
-                            もっと見る
-                        </button>
+                        <!-- 「もっと見る」ボタンを新しいページへのリンクに変更 -->
+                        <a href="history.html" id="toggle-history-button" class="text-emerald-600 hover:text-emerald-700 font-medium">
+                            すべての実績を見る
+                        </a>
                     </div>
                 </div>
             </div>
@@ -788,17 +789,18 @@
             let requestRatioChartInstance = null;
             let cgUsageChartInstance = null;
             let allHistoryData = []; // CSVから読み込んだ全履歴データを格納する変数
-            let historyExpanded = false; // 履歴リストの表示状態
+            // let historyExpanded = false; // history.htmlに移動するため削除
 
             const historyListContainer = document.getElementById('history-list-container');
-            const toggleHistoryButton = document.getElementById('toggle-history-button');
+            // const toggleHistoryButton = document.getElementById('toggle-history-button'); // aタグに変更したため削除
             const itemsToShowInitially = 3;
 
             // 履歴リストをレンダリングする関数
             function renderHistory() {
                 if (!historyListContainer) return;
                 historyListContainer.innerHTML = '';
-                const itemsToRender = historyExpanded ? allHistoryData : allHistoryData.slice(0, itemsToShowInitially);
+                // index.htmlでは常に最初のitemsToShowInitially件のみ表示
+                const itemsToRender = allHistoryData.slice(0, itemsToShowInitially);
 
                 itemsToRender.forEach(item => {
                     const itemDiv = document.createElement('div');
@@ -816,14 +818,15 @@
                     historyListContainer.appendChild(itemDiv);
                 });
 
-                if (toggleHistoryButton) {
-                    if (allHistoryData.length <= itemsToShowInitially) {
-                        toggleHistoryButton.style.display = 'none';
-                    } else {
-                        toggleHistoryButton.style.display = 'inline-block';
-                        toggleHistoryButton.textContent = historyExpanded ? '一部表示する' : 'もっと見る';
-                    }
-                }
+                // 「もっと見る」ボタン（aタグ）の表示/非表示は不要になるため削除
+                // if (toggleHistoryButton) {
+                //     if (allHistoryData.length <= itemsToShowInitially) {
+                //         toggleHistoryButton.style.display = 'none';
+                //     } else {
+                //         toggleHistoryButton.style.display = 'inline-block';
+                //         toggleHistoryButton.textContent = historyExpanded ? '一部表示する' : 'もっと見る';
+                //     }
+                // }
             }
 
             // CSVデータをパースし、チャートと履歴リストを更新する関数
@@ -854,7 +857,8 @@
                     'オリジナル楽曲MV制作': 0,
                     '歌ってみたMV制作': 0,
                     'ショートムービー制作': 0,
-                    'その他': 0
+                    'その他': 0,
+                    'CG制作': 0 // CG制作もカウント対象に追加
                 };
                 // CG使用度合いの集計
                 const cgUsageCounts = {
@@ -892,8 +896,12 @@
                     requestCounts['オリジナル楽曲MV制作'],
                     requestCounts['歌ってみたMV制作'],
                     requestCounts['ショートムービー制作'],
+                    requestCounts['CG制作'], // CG制作のデータを追加
                     requestCounts['その他']
                 ];
+                // ラベルも更新（CG制作を追加）
+                requestRatioChartConfig.data.labels = ['オリジナル楽曲MV制作', '歌ってみたMV制作', 'ショートムービー制作', 'CG制作', 'その他'];
+
 
                 cgUsageChartConfig.data.datasets[0].data = [
                     cgUsageCounts['フル3D'],
@@ -952,13 +960,7 @@
                 }
             }
 
-            // 履歴リストの表示切り替えボタンのイベントリスナー
-            if (toggleHistoryButton) {
-                toggleHistoryButton.addEventListener('click', () => {
-                    historyExpanded = !historyExpanded;
-                    renderHistory(); // 履歴リストを再レンダリング
-                });
-            }
+            // 履歴リストの表示切り替えボタンのイベントリスナーは削除し、aタグになったため不要
 
             // ページロード時にCSVデータをロード
             loadCsvData();
